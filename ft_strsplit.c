@@ -1,0 +1,62 @@
+#include <stdlib.h>
+
+int				is_space(char ch, char c)
+{
+	return (ch == c || ch == 0);
+}
+
+unsigned int	count_words(char *str, char ***r, char c)
+{
+	int			i;
+	int			res;
+
+	i = 1;
+	res = 0;
+	if (!is_space(str[0], c))
+		++res;
+	while (str[i] != '\0')
+	{
+		if (!is_space(str[i], c) && is_space(str[i - 1], c))
+			res++;
+		++i;
+	}
+	if (!(*r = (char**)malloc(sizeof(char*) * (res + 1))))
+		return(0);
+	return (res);
+}
+
+void			step(char *dest, char **src, int *index)
+{
+	dest[*index] = *src[0];
+	++*index;
+	++*src;
+}
+
+char			**ft_strsplit(char const *str, char c)
+{
+	int			i;
+	int			j;
+	int			chan_words;
+	int			n_symbols;
+	char		**res;
+
+	if (!(n_words = count_words(str, &res, c)))
+		return(0);
+	res[n_words] = 0;
+	i = -1;
+	while (++i < n_words)
+	{
+		while (is_space(str[0], c))
+			++str;
+		n_symbols = 0;
+		while (!is_space(str[n_symbols], c))
+			++n_symbols;
+		if (!(res[i] = (char*)malloc(sizeof(char) * (n_symbols + 1))))
+			return(0);
+		j = 0;
+		while (!is_space(str[0], c))
+			step(res[i], &str, &j);
+		res[i][j] = '\0';
+	}
+	return (res);
+}
