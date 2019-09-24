@@ -9,7 +9,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
-	if (! dest = malloc((l1 + l2 + 1) * sizeof(char)))
+	if (!(dest = malloc((l1 + l2 + 1) * sizeof(char))))
 		return(0);
 	ft_strcpy(dest, s1);
 	ft_strcpy(dest + l1, s2);

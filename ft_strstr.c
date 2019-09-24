@@ -33,7 +33,7 @@ char	*ft_strstr(const char *str, const char *to_find)
 			if (str[i + j] != to_find[j] && to_find[j] != '\0')
 				res = 0;
 		if (res)
-			return (str + i);
+			return((char*)&str[i]);
 		++i;
 	}
 	return (0);

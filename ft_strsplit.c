@@ -32,14 +32,15 @@ void			step(char *dest, char **src, int *index)
 	++*src;
 }
 
-char			**ft_strsplit(char const *str, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int			i;
 	int			j;
-	int			chan_words;
+	int			n_words;
 	int			n_symbols;
-	char		**res;
+	char		**res, *str;
 
+	str = (char*)s;
 	if (!(n_words = count_words(str, &res, c)))
 		return(0);
 	res[n_words] = 0;

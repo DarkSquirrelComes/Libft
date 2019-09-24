@@ -1,6 +1,6 @@
 int			ft_strequ(char const *s1, char const *s2)
 {
-	char	*ptr1, ptr2;
+	char	*ptr1, *ptr2;
 
 	ptr1 = (char*)s1;
 	ptr2 = (char*)s2;

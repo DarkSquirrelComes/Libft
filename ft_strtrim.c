@@ -12,10 +12,10 @@ char		*ft_strtrim(char const *s)
 	len = 0;
 	while (ptr[len] && ptr[len] != ' ' && ptr[len] != '\n' && ptr[len] != '\t')
 		++len;
-	if (! dest = malloc((len + 1) * sizeof(char)))
+	if (!(dest = malloc((len + 1) * sizeof(char))))
 		return(0);
 	dest[len] = 0;
-	while (--len >= 0)
+	while (len-- > 0)
 		dest[len] = s[len];
 	return(dest);
 }
