@@ -1,3 +1,5 @@
+#include <string.h>
+
 #ifndef LIBFT
 # define LIBFT
 int		ft_atoi(char *str);
