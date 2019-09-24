@@ -4,7 +4,7 @@ void		ft_putstr(char const *s)
 {
 	char	*ptr;
 
-	ptr = s;
+	ptr = (char*)s;
 	while (*ptr)
 	{
 		write(1, ptr, 1);

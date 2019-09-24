@@ -1,10 +1,13 @@
+#include <string.h>
+#include <stdlib.h>
+
 void				*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr_d, *ptr_s, *ptr;
 	size_t			m;
 
 	m = n;
-	ptr_d = malloc(n * sizeof(char));
+	ptr_d = (unsigned char*)malloc(n * sizeof(char));
 	ptr = ptr_d;
 	ptr_s = (unsigned char*)src;
 	while (n-- > 0)

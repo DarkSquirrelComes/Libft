@@ -1,3 +1,5 @@
+#include <string.h>
+
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	unsigned char	*ptr_d, *ptr_s;
@@ -8,7 +10,7 @@ void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	{
 		*(ptr_d++) = *(ptr_s++);
 		if (*ptr_s == (char)c)
-			return ++ptr_d
+			return(++ptr_d);
 	}
 	return(0);
 }

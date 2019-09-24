@@ -2,7 +2,7 @@ char		*strrchr(const char *s, int c)
 {
 	char	*ptr, *res;
 
-	ptr = s;
+	ptr = (char*)s;
 	res = 0;
 	while (*ptr)
 	{

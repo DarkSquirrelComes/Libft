@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 char		*ft_itoa(int n)
 {
@@ -7,6 +8,7 @@ char		*ft_itoa(int n)
 	char	*res;
 
 	size = 0;
+	m = n;
 	if (n < 0)
 	{
 		n *= -1;

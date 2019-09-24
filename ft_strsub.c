@@ -5,7 +5,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len)
 	char			*dest;
 	unsigned int	i;
 
-	if (! dest = malloc((len + 1) * sizeof(char)))
+	if (! dest = (char*)malloc((len + 1) * sizeof(char)))
 		return(0);
 	dest[len] = 0;
 	i = start;

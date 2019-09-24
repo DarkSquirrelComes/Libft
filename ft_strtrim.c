@@ -3,10 +3,10 @@
 
 char		*ft_strtrim(char const *s)
 {
-	char	*ptr, dest;
+	char	*ptr, *dest;
 	size_t	len;
 
-	ptr = s;
+	ptr = (char*)s;
 	while(*ptr && (*ptr == ' ' || *ptr == '\n' || *ptr == '\t'))
 		++ptr;
 	len = 0;
