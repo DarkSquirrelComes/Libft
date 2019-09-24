@@ -4,7 +4,7 @@
 char 				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*res;
-	unsigned int	i, n;
+	int				i, n;
 
 	n = ft_strlen(s);
 	res = malloc(sizeof(char) * (n + 1));

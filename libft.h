@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 
 #ifndef LIBFT
 # define LIBFT
