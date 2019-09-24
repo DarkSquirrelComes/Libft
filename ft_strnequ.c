@@ -1,4 +1,4 @@
-int			ft_strnequ(char const *s1, char const *s2, size_t n);
+int			ft_strnequ(char const *s1, char const *s2, size_t n)
 {
 	char	*ptr1, ptr2;
 	size_t	i;

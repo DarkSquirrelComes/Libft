@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_memdel(char **ap)
+void	ft_strdel(char **ap)
 {
 	while (*ap)
 	{

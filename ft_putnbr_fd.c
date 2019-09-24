@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void		ft_putnbr(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
 	char	ch;
 	if (n < 0)
