@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/25 21:10:42 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:10:45 by heurybia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-int				is_space(char ch, char c)
+static int		is_space(char ch, char c)
 {
 	return (ch == c || ch == 0);
 }
@@ -21,11 +33,11 @@ unsigned int	count_words(char *str, char ***r, char c)
 		++i;
 	}
 	if (!(*r = (char**)malloc(sizeof(char*) * (res + 1))))
-		return(0);
+		return (0);
 	return (res);
 }
 
-void			step(char *dest, char **src, int *index)
+static void		step(char *dest, char **src, int *index)
 {
 	dest[*index] = *src[0];
 	++*index;
@@ -38,11 +50,12 @@ char			**ft_strsplit(char const *s, char c)
 	int			j;
 	int			n_words;
 	int			n_symbols;
-	char		**res, *str;
+	char		**res;
+	char		*str;
 
 	str = (char*)s;
 	if (!(n_words = count_words(str, &res, c)))
-		return(0);
+		return (0);
 	res[n_words] = 0;
 	i = -1;
 	while (++i < n_words)
@@ -53,7 +66,7 @@ char			**ft_strsplit(char const *s, char c)
 		while (!is_space(str[n_symbols], c))
 			++n_symbols;
 		if (!(res[i] = (char*)malloc(sizeof(char) * (n_symbols + 1))))
-			return(0);
+			return (0);
 		j = 0;
 		while (!is_space(str[0], c))
 			step(res[i], &str, &j);

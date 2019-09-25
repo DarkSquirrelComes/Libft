@@ -1,4 +1,16 @@
-char		*strchr(const char *s, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/25 21:05:14 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:05:16 by heurybia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char		*ft_strchr(const char *s, int c)
 {
 	char	*ptr;
 
@@ -6,8 +18,8 @@ char		*strchr(const char *s, int c)
 	while (*ptr)
 	{
 		if (*ptr == (char)c)
-			return(ptr);
+			return (ptr);
 		++ptr;
 	}
-	return(0);
+	return (0);
 }

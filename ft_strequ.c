@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/25 21:06:23 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:06:25 by heurybia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int			ft_strequ(char const *s1, char const *s2)
 {
-	char	*ptr1, *ptr2;
+	char	*ptr1;
+	char	*ptr2;
 
 	ptr1 = (char*)s1;
 	ptr2 = (char*)s2;
@@ -9,5 +22,5 @@ int			ft_strequ(char const *s1, char const *s2)
 		++ptr1;
 		++ptr2;
 	}
-	return((*ptr1 == *ptr2) ? 1 : 0);
+	return ((*ptr1 == *ptr2) ? 1 : 0);
 }
