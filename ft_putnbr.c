@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
 
 static void	my_putnbr(long long n)
 {

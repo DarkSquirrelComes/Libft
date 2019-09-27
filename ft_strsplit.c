@@ -49,23 +49,21 @@ char			**ft_strsplit(char const *s, char c)
 	int			i;
 	int			j;
 	int			n_words;
-	int			n_symbols;
 	char		**res;
 	char		*str;
 
 	str = (char*)s;
-	if (!(n_words = count_words(str, &res, c)))
-		return (0);
+	n_words = count_words(str, &res, c);
 	res[n_words] = 0;
 	i = -1;
 	while (++i < n_words)
 	{
 		while (is_space(str[0], c))
 			++str;
-		n_symbols = 0;
-		while (!is_space(str[n_symbols], c))
-			++n_symbols;
-		if (!(res[i] = (char*)malloc(sizeof(char) * (n_symbols + 1))))
+		j = 0;
+		while (!is_space(str[j], c))
+			++j;
+		if (!(res[i] = (char*)malloc(sizeof(char) * (j + 1))))
 			return (0);
 		j = 0;
 		while (!is_space(str[0], c))
