@@ -11,24 +11,29 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 
 void				*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr_d;
 	unsigned char	*ptr_s;
-	unsigned char	*ptr;
-	size_t			m;
+	size_t			i;
 
-	m = n;
-	ptr_d = (unsigned char*)malloc(n * sizeof(char));
-	ptr = ptr_d;
-	ptr_s = (unsigned char*)src;
-	while (n-- > 0)
-		*(ptr_d++) = *(ptr_s++);
-	ptr_s = ptr;
 	ptr_d = (unsigned char*)dest;
-	while (m-- > 0)
-		*(ptr_d++) = *(ptr_s++);
+	ptr_s = (unsigned char*)src;
+	i = 0;
+	if (ptr_s == ptr_d)
+		return (dest);
+	if (ptr_s > ptr_d)
+		while (i < n && ptr_s[i])
+		{
+			ptr_d[i] = ptr_s[i];
+			++i;
+		}
+	else
+	{
+		i = n;
+		while (i-- > 0)
+			ptr_d[i] = ptr_s[i];
+	}
 	return (dest);
 }

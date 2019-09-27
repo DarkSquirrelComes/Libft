@@ -14,16 +14,14 @@ int					ft_atoi(char *str)
 {
 	int				i;
 	int				minus;
-	int				res;
+	long long		res;
 	unsigned int	digit;
 
 	res = 0;
-	minus = 0;
 	i = 0;
 	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		++i;
-	if (str[i] == '-')
-		minus = 1;
+	minus = (str[i] == '-') ? -1 : 1;
 	if (str[i] == '+' || str[i] == '-')
 		++i;
 	while (1)
@@ -32,9 +30,11 @@ int					ft_atoi(char *str)
 		if (digit > 9)
 			break ;
 		res = 10 * res + digit;
+		if (minus == 1 && res > 2147483647)
+			return (-1);
+		if (minus == -1 && res > 2147483648)
+			return (0);
 		++i;
 	}
-	if (minus == 1)
-		res *= -1;
-	return (res);
+	return ((int)(res * minus));
 }
