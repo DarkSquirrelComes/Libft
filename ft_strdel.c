@@ -15,10 +15,6 @@
 
 void	ft_strdel(char **ap)
 {
-	while (*ap)
-	{
-		free(*ap);
-		*ap = 0;
-		++ap;
-	}
+	free((void*)*ap);
+	*ap = 0;
 }

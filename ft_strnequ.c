@@ -28,5 +28,5 @@ int			ft_strnequ(char const *s1, char const *s2, size_t n)
 		++ptr1;
 		++ptr2;
 	}
-	return ((*ptr1 == *ptr2) ? 1 : 0);
+	return ((*ptr1 == *ptr2 || i == n) ? 1 : 0);
 }

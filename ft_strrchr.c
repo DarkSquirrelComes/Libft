@@ -10,18 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char		*ft_strrchr(const char *s, int c)
+char				*ft_strrchr(const char *s, int c)
 {
-	char	*ptr;
-	char	*res;
+	unsigned int	res;
+	unsigned int	i;
 
-	ptr = (char*)s;
+	i = 0;
 	res = 0;
-	while (*ptr)
+	while (s[i])
 	{
-		if (*ptr == (char)c)
-			res = ptr;
-		++ptr;
+		if ((int)s[i] == c)
+			res = i;
+		++i;
 	}
-	return (res);
+	if (c == 0)
+		return ((char*)s + i);
+	if (c == s[res])
+		return ((char*)s + res);
+	else
+		return (0);
 }

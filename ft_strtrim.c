@@ -11,7 +11,11 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+
+static int	my_isspace(char c)
+{
+	return (c == ' ' || c == '\n' || c == '\t');
+}
 
 char		*ft_strtrim(char const *s)
 {
@@ -20,15 +24,18 @@ char		*ft_strtrim(char const *s)
 	size_t	len;
 
 	ptr = (char*)s;
-	while (*ptr && (*ptr == ' ' || *ptr == '\n' || *ptr == '\t'))
+	while (*ptr && my_isspace(*ptr))
 		++ptr;
 	len = 0;
-	while (ptr[len] && ptr[len] != ' ' && ptr[len] != '\n' && ptr[len] != '\t')
+	while (ptr[len])
 		++len;
+	while (len > 0 && (ptr[len] == 0 || my_isspace(ptr[len])))
+		--len;
+	++len;
 	if (!(dest = malloc((len + 1) * sizeof(char))))
 		return (0);
 	dest[len] = 0;
 	while (len-- > 0)
-		dest[len] = s[len];
+		dest[len] = ptr[len];
 	return (dest);
 }
