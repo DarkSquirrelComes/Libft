@@ -30,10 +30,6 @@ int					ft_atoi(char *str)
 		if (digit > 9)
 			break ;
 		res = 10 * res + digit;
-		if (minus == 1 && res > 2147483647)
-			return (-1);
-		if (minus == -1 && res > 2147483648)
-			return (0);
 		++i;
 	}
 	return ((int)(res * minus));
