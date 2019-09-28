@@ -24,7 +24,7 @@ void				*ft_memmove(void *dest, const void *src, size_t n)
 	if (ptr_s == ptr_d)
 		return (dest);
 	if (ptr_s > ptr_d)
-		while (i < n && ptr_s[i])
+		while (i < n)
 		{
 			ptr_d[i] = ptr_s[i];
 			++i;

@@ -23,6 +23,8 @@ char		*ft_strtrim(char const *s)
 	char	*dest;
 	size_t	len;
 
+	if (s == 0)
+		return (0);
 	ptr = (char*)s;
 	while (*ptr && my_isspace(*ptr))
 		++ptr;

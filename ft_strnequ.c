@@ -18,6 +18,8 @@ int			ft_strnequ(char const *s1, char const *s2, size_t n)
 	char	*ptr2;
 	size_t	i;
 
+	if (s1 == 0 || s2 == 0)
+		return (0);
 	if (n == 0)
 		return (1);
 	ptr1 = (char*)s1;

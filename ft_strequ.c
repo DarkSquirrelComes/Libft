@@ -15,6 +15,8 @@ int			ft_strequ(char const *s1, char const *s2)
 	char	*ptr1;
 	char	*ptr2;
 
+	if (s1 == 0 || s2 == 0)
+		return (0);
 	ptr1 = (char*)s1;
 	ptr2 = (char*)s2;
 	while (*ptr1 && *ptr2 && *ptr1 == *ptr2)
