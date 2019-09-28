@@ -12,15 +12,32 @@
 
 #include <stdlib.h>
 
-static int		is_space(char ch, char c)
+static int			is_space(char ch, char c)
 {
 	return (ch == c || ch == 0);
 }
 
-unsigned int	count_words(char *str, char ***r, char c)
+static int			len(char *str, char c)
 {
-	int			i;
-	int			res;
+	int				res;
+
+	res = 0;
+	while (!is_space(str[res], c))
+		++res;
+	return (res);
+}
+
+static void			prep(int *a, int *b, char **c)
+{
+	*a = 0;
+	*b = 0;
+	*c = 0;
+}
+
+static unsigned int	count_words(char *str, char c)
+{
+	int				i;
+	int				res;
 
 	i = 1;
 	res = 0;
@@ -32,51 +49,34 @@ unsigned int	count_words(char *str, char ***r, char c)
 			res++;
 		++i;
 	}
-	if (!(*r = (char**)malloc(sizeof(char*) * (res + 1))))
-		return (0);
 	return (res);
 }
 
-static void		step(char *dest, char **src, int *index)
+char				**ft_strsplit(char const *s, char c)
 {
-	dest[*index] = *src[0];
-	++*index;
-	++*src;
-}
+	int				nw;
+	int				i;
+	int				j;
+	char			**res;
 
-char			**ft_strsplit(char const *s, char c)
-{
-	int			i;
-	int			j;
-	int			n_words;
-	char		**res;
-	char		*str;
-
-	if (s == 0)
+	nw = count_words((char *)s, c);
+	if (!(res = (char**)malloc(sizeof(char*) * (nw + 1))))
+		return (0);
+	prep(&i, &j, &res[nw]);
+	while (*s)
 	{
-		res = (char**)malloc(sizeof(char));
-		if (!res)
-			return(0);
-		res[0] = 0;
-		return (res);
-	}
-	str = (char*)s;
-	n_words = count_words(str, &res, c);
-	res[n_words] = 0;
-	i = -1;
-	while (++i < n_words)
-	{
-		while (is_space(str[0], c))
-			++str;
-		j = 0;
-		while (!is_space(str[j], c))
+		while (is_space(*s, c) && *s)
+			++s;
+		if (*s)
+		{
+			if (!(res[j] = malloc(sizeof(char) * (len((char *)s, c)))))
+				return (0);
+			while (!is_space(s[0], c))
+				res[j][i++] = *(s++);
+			res[j][i] = 0;
+			i = 0;
 			++j;
-		if (!(res[i] = (char*)malloc(sizeof(char) * (j + 1))))
-			return (0);
-		j = 0;
-		while (!is_space(str[0], c))
-			step(res[i], &str, &j);
-		res[i][j] = '\0';
+		}
 	}
 	return (res);
 }
