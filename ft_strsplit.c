@@ -1,63 +1,83 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/25 21:10:42 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:10:45 by heurybia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-int				is_space(char ch, char c)
+static int			is_space(char ch, char c)
 {
 	return (ch == c || ch == 0);
 }
 
-unsigned int	count_words(char *str, char ***r, char c)
+static int			len(char *str, char c)
 {
-	int			i;
-	int			res;
+	int				r;
+
+	r = 0;
+	while (!is_space(str[r], c))
+		++r;
+	return (r);
+}
+
+static void			prep(int *a, int *b, char **c)
+{
+	*a = 0;
+	*b = 0;
+	*c = 0;
+}
+
+static unsigned int	cw(char *str, char c, int *nw)
+{
+	int				i;
+	int				r;
 
 	i = 1;
-	res = 0;
+	r = 0;
 	if (!is_space(str[0], c))
-		++res;
+		++r;
 	while (str[i] != '\0')
 	{
 		if (!is_space(str[i], c) && is_space(str[i - 1], c))
-			res++;
+			r++;
 		++i;
 	}
-	if (!(*r = (char**)malloc(sizeof(char*) * (res + 1))))
-		return(0);
-	return (res);
+	*nw = r;
+	return (r);
 }
 
-void			step(char *dest, char **src, int *index)
+char				**ft_strsplit(char const *s, char c)
 {
-	dest[*index] = *src[0];
-	++*index;
-	++*src;
-}
+	int				nw;
+	int				i;
+	int				j;
+	char			**r;
 
-char			**ft_strsplit(char const *s, char c)
-{
-	int			i;
-	int			j;
-	int			n_words;
-	int			n_symbols;
-	char		**res, *str;
-
-	str = (char*)s;
-	if (!(n_words = count_words(str, &res, c)))
-		return(0);
-	res[n_words] = 0;
-	i = -1;
-	while (++i < n_words)
+	if (!s || !(r = (char**)malloc(sizeof(char*) * \
+		(cw((char *)s, c, &nw) + 1))))
+		return (0);
+	prep(&i, &j, &r[nw]);
+	while (*s)
 	{
-		while (is_space(str[0], c))
-			++str;
-		n_symbols = 0;
-		while (!is_space(str[n_symbols], c))
-			++n_symbols;
-		if (!(res[i] = (char*)malloc(sizeof(char) * (n_symbols + 1))))
-			return(0);
-		j = 0;
-		while (!is_space(str[0], c))
-			step(res[i], &str, &j);
-		res[i][j] = '\0';
+		while (is_space(*s, c) && *s)
+			++s;
+		if (*s)
+		{
+			if (!(r[j] = malloc(sizeof(char) * (len((char *)s, c)))))
+				return (0);
+			while (!is_space(s[0], c))
+				r[j][i++] = *(s++);
+			r[j][i] = 0;
+			i = 0;
+			++j;
+		}
 	}
-	return (res);
+	return (r);
 }

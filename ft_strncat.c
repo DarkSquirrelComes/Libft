@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 12:26:41 by heurybia          #+#    #+#             */
-/*   Updated: 2019/06/11 15:45:12 by heurybia         ###   ########.fr       */
+/*   Created: 2019/09/25 21:08:12 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:08:14 by heurybia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, int nb)
+char	*ft_strncat(char *dest, const char *src, int nb)
 {
 	int i;
 	int j;

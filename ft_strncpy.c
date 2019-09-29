@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/10 14:33:05 by heurybia          #+#    #+#             */
-/*   Updated: 2019/06/10 17:07:35 by heurybia         ###   ########.fr       */
+/*   Created: 2019/09/25 21:08:48 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:08:52 by heurybia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char					*ft_strncpy(char *dest, char *src, unsigned int n)
+char					*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	unsigned int		i;
 	unsigned int		len;

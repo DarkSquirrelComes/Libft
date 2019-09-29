@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/10 17:13:59 by heurybia          #+#    #+#             */
-/*   Updated: 2019/06/11 15:36:20 by heurybia         ###   ########.fr       */
+/*   Created: 2019/09/25 21:08:30 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:08:32 by heurybia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int i;
 
@@ -19,5 +19,5 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && i < n - 1)
 		++i;
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

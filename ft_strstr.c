@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 16:42:39 by heurybia          #+#    #+#             */
-/*   Updated: 2019/06/11 16:42:43 by heurybia         ###   ########.fr       */
+/*   Created: 2019/09/25 21:10:58 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:11:00 by heurybia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strstr(const char *str, const char *to_find)
 			if (str[i + j] != to_find[j] && to_find[j] != '\0')
 				res = 0;
 		if (res)
-			return((char*)&str[i]);
+			return ((char*)&str[i]);
 		++i;
 	}
 	return (0);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heurybia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/12 19:47:32 by heurybia          #+#    #+#             */
-/*   Updated: 2019/06/13 15:04:26 by heurybia         ###   ########.fr       */
+/*   Created: 2019/09/25 21:06:13 by heurybia          #+#    #+#             */
+/*   Updated: 2019/09/25 21:06:15 by heurybia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@ char				*ft_strdup(const char *src)
 	char			*dest;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i])
 		++i;
 	n = i;
-	dest = (char*)malloc(sizeof(char) * (n + 1));
+	if (!(dest = (char*)malloc(sizeof(char) * (n + 1))))
+		return (0);
 	i = 0;
-	while (i <= n)
+	while (i < n)
+	{
 		dest[i] = src[i];
+		++i;
+	}
+	dest[i] = 0;
 	return (dest);
 }
